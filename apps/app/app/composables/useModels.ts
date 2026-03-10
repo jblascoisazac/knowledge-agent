@@ -18,6 +18,7 @@ export function useModels() {
     'google/gemini-3-flash',
     'anthropic/claude-sonnet-4.6',
     'anthropic/claude-opus-4.6',
+    'openai/gpt-5.4',
   ]
 
   const model = useCookie<string>('model', { default: () => 'anthropic/claude-sonnet-4.6' })

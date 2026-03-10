@@ -15,7 +15,9 @@ export const agentConfigSchema = z.object({
     'google/gemini-3-flash',
     'anthropic/claude-sonnet-4.6',
     'anthropic/claude-opus-4.6',
-  ]).describe('flash for trivial/simple, sonnet for moderate, opus for complex'),
+    'openai/gpt-5.4',
+  ]).describe('flash for trivial/simple, sonnet for moderate, opus/gpt-5.4 for complex'),
+
 
   reasoning: z.string().max(200)
     .describe('Brief explanation of the classification'),
@@ -35,7 +37,8 @@ export function getDefaultConfig(): AgentConfig {
 const MODEL_FALLBACKS: Record<string, string[]> = {
   'google/gemini-3-flash': ['anthropic/claude-sonnet-4.6', 'openai/gpt-4o'],
   'anthropic/claude-sonnet-4.6': ['google/gemini-3-flash', 'openai/gpt-4o'],
-  'anthropic/claude-opus-4.6': ['anthropic/claude-sonnet-4.6', 'google/gemini-3-flash'],
+  'anthropic/claude-opus-4.6': ['anthropic/claude-sonnet-4.6', 'openai/gpt-5.4'],
+  'openai/gpt-5.4': ['anthropic/claude-opus-4.6', 'anthropic/claude-sonnet-4.6'],
   'google/gemini-2.5-flash-lite': ['google/gemini-3-flash', 'openai/gpt-4o-mini'],
 }
 

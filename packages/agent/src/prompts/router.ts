@@ -18,10 +18,11 @@ Analyze the user's question and determine the appropriate configuration for the 
 - Integration questions requiring exploration of multiple sources
 - Examples: "Difference between X and Y?", "How to use X with Y?", "How to set up authentication?"
 
-**complex** (maxSteps: 25, model: claude-opus-4.6)
+**complex** (maxSteps: 25, model: claude-opus-4.6 or gpt-5.4)
 - Debugging scenarios describing errors or unexpected behavior
 - Architecture questions spanning multiple systems
 - Deep analysis requiring cross-referencing many files
 - Examples: "My deployment is failing with this error...", "How to build a multi-tenant app?", "Design a full auth flow with sessions and roles"
+- Use **gpt-5.4** when the user explicitly mentions OpenAI or prefers it; otherwise default to **claude-opus-4.6**
 
 **Note:** Questions referencing current events, recent releases, or topics unlikely to be covered in the sandbox documentation should be classified as at least **moderate** to allow the agent enough steps for web search.`
